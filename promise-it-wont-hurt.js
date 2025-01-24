@@ -1,8 +1,10 @@
-var promise = new Promise(function (fulfill, reject) {
-    setTimeout(() => reject(new Error('REJET !')), 300);
+var promise = new Promise( function (fulfill, reject) {
+    fulfill("J'AI ETE APPELEE");
+    reject(new Error("JE N'AI PAS ETE RAPPELER"));
 });
 
-function onReject (error) {
+function onRejected(error) {
     console.log(error.message);
 }
-promise.then(null, onReject);
+
+promise.then(console.log, onRejected);
